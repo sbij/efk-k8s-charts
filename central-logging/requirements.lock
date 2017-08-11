@@ -1,0 +1,27 @@
+dependencies:
+- alias: ""
+  condition: ""
+  enabled: false
+  import-values: null
+  name: daemon-fluentd
+  repository: file://../daemon-fluentd
+  tags: null
+  version: 0.3.0
+- alias: ""
+  condition: ""
+  enabled: false
+  import-values: null
+  name: elasticsearch
+  repository: file://../elasticsearch
+  tags: null
+  version: 0.2.1
+- alias: ""
+  condition: ""
+  enabled: false
+  import-values: null
+  name: kibana
+  repository: file://../kibana
+  tags: null
+  version: 0.1.2
+digest: sha256:194c80228d498709bf16ffa9433ba716a527d6e6476e629b74b022005dfb49ec
+generated: 2017-08-08T11:52:32.698751928+02:00

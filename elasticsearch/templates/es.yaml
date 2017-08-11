@@ -141,9 +141,11 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         imagePullPolicy: {{.Values.master_imagePullPolicy}}
+      {{- if .Values.persistence.enabled }}
         volumeMounts:
         - name: esdata
           mountPath: /usr/share/elasticsearch/data
+      {{- end }}
       volumes:
       - name: hostproc
         hostPath:
@@ -176,6 +178,7 @@ spec:
       {{- end }}
       {{- end }}
       {{- end }}
+  {{- if .Values.persistence.enabled }}
   volumeClaimTemplates:
   - metadata:
       name: esdata
@@ -186,6 +189,8 @@ spec:
       resources:
         requests:
           storage: {{.Values.master_volume_storage}}
+  {{- end }}
+
 ---
 apiVersion: apps/v1beta1
 kind: StatefulSet
@@ -252,9 +257,11 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         imagePullPolicy: Always
+      {{- if .Values.persistence.enabled }}
         volumeMounts:
         - name: esdata
           mountPath: /usr/share/elasticsearch/data
+      {{- end }}
       volumes:
       - name: hostproc
         hostPath:
@@ -287,6 +294,7 @@ spec:
       {{- end }}
       {{- end }}
       {{- end }}
+  {{- if .Values.persistence.enabled }}
   volumeClaimTemplates:
   - metadata:
       name: esdata
@@ -298,3 +306,4 @@ spec:
         requests:
           #  set to small so when exploring with this the user doesn't accidentally create very large disks
           storage: {{.Values.data_volume_storage}}
+  {{- end }}

@@ -1,9 +1,0 @@
-description: ZooKeeper StatefulSet chart
-name: zookeeper
-version: 0.2.2
-keywords: [zookeeper, java]
-home: https://zookeeper.apache.org/
-maintainers:
- - name: Pat Christopher
-   email: coffeepac@gmail.com
-engine: gotpl

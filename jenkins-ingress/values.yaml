@@ -1,5 +1,0 @@
-tls: true
-# gce or nginx
-controller: "gce"
-domain: "jenkins.cnct.io"
-port: 80

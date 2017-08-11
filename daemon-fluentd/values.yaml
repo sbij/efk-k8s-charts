@@ -16,17 +16,26 @@ crb_component: fluentd-daemon
 # Values for FluentD Daemonset
 name: fluentd-daemon
 namespace: kube-logging
+#namespace: kube-system
 app: log-app
 component: fluentd-daemon
 k8s: fluentd-logging
 service_account_name: fluentd-daemon
 fluentd_container_name: fluentd-daemon
-fluentd_image: leahnp/fluentd-test
+#fluentd_image: leahnp/fluentd-test
+fluentd_image: antonh/fluentd-kubernetes-daemonset-standalone
 memory_limits: 200Mi
 cpu_requests: 100m
 memory_requests: 200Mi
 sidecar_container_name: logrotate-sidecar
 logrotate_image: quay.io/samsung_cnct/logrotate
+#env:
+#- name: FLUENT_ELASTICSEARCH_HOST
+#  value: "elasticsearch" #"elasticsearch-logging"
+#- name: FLUENT_ELASTICSEARCH_PORT
+#  value: "19200"
+#- name: FLUENT_ELASTICSEARCH_SCHEME
+#  value: "http"
 scheduling:
   affinity:
     node:
@@ -35,7 +44,7 @@ scheduling:
       # - key: iamalabelkey
       #   operator: In
       #   values: ["value1", "value2"]
-# tolerations:
-#  - key: node-role.kubernetes.io/master
-#    operator: Equal
-#    effect: NoSchedule
+tolerations:
+ - key: node-role.kubernetes.io/master
+   operator: Equal
+   effect: NoSchedule

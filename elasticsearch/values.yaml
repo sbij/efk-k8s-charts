@@ -6,7 +6,7 @@
 #Services
 image: quay.io/samsung_cnct/elasticsearch:0.1
 name: elasticsearch
-namespace: kube-system
+namespace: kube-logging
 port: 9200
 port_name: http
 port_selector: elasticsearch-data
@@ -75,3 +75,7 @@ data_scheduling:
       # - key: iamalabelkey
       #   operator: In
       #   values: ["value1", "value2"]
+
+# Enable persistent volume claims
+persistence:
+  enabled: false #true

@@ -1,4 +1,0 @@
-description: A Helm chart for Grafana
-name: grafana
-version: 0.2.0
-deprecated: true

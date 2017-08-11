@@ -1,4 +1,0 @@
-dependencies:
-  - name: zookeeper
-    version: 0.2.2
-    repository: http://atlas.cnct.io

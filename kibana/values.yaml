@@ -7,12 +7,13 @@ port: 5601
 component: kibana-logging
 replicas: 3
 container_name: kibana-logging
-image: docker.elastic.co/kibana/kibana:5.4.2
+#image: docker.elastic.co/kibana/kibana:5.4.2
+image: kibana:5.4.2
 # keep request = limit to keep this container in guaranteed class
 cpu_limit: 100m
 cpu_requests: 100m
 env_name: ELASTICSEARCH_URL
-env_value: http://elasticsearch.kube-system:9200
+env_value: http://elasticsearch:9200
 container_port: 5601
 tolerations:
  # - key: taintKey
@@ -28,3 +29,6 @@ scheduling:
       # - key: iamalabelkey
       #   operator: In
       #   values: ["value1", "value2"]
+
+service:
+  type: LoadBalancer
