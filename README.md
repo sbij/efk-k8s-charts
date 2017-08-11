@@ -1,4 +1,4 @@
-# kubernetes-logging-charts
+# k2-charts
 
 Launch the charts with:
 ```
