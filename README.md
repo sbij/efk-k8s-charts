@@ -1,4 +1,4 @@
-# k2-charts
+# efk-k8s-charts
 
 Launch the charts with:
 ```
